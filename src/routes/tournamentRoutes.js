@@ -1,21 +1,21 @@
 import express from "express"
-import { tournamentController } from "../controllers/tournamentController.js"
+import { getAllTournament, getTournament, setTournament, modifyTournament, deleteTournament } from "../controllers/tournamentController.js"
 
 const router = express.Router();
 
 //Listar todos los torneos
-router.get("/", tournamentController);
+router.get("/", getAllTournament);
 
 //Buscar un torneo por su ID
-router.get("/:id", tournamentController);
+router.get("/:id", getTournament);
 
 //Agregar un torneo
-router.post("/", tournamentController);
+router.post("/", setTournament);
 
 //Eliminar un torneo segun un ID
-router.delete("/:id", tournamentController);
+router.delete("/:id", modifyTournament);
 
 //Modificar un torneo por su ID
-router.put("/:id",tournamentController);
+router.put("/:id",deleteTournament);
 
 export default router;

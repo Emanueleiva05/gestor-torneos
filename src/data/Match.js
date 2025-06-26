@@ -1,4 +1,4 @@
-export class Match{
+export default class Match{
     constructor(id,date,player1,player2,type){
         this.id = id;
         this.date = date;

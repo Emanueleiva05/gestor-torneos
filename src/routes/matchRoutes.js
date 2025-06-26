@@ -1,21 +1,21 @@
 import express from "express"
-import { matchController } from "../controllers/matchController.js"
+import { getAllMatch, getMatch, setMatch, modifyMatch, deleteMatch } from "../controllers/matchController.js"
 
 const router = express.Router();
 
 //Listar todos los partidos
-router.get("/", matchController);
+router.get("/", getAllMatch);
 
 //Buscar un partido por su ID
-router.get("/:id", matchController);
+router.get("/:id", getMatch);
 
 //Agregar un partido
-router.post("/", matchController);
+router.post("/", setMatch);
 
 //Eliminar un partido segun un ID
-router.delete("/:id", matchController);
+router.delete("/:id", deleteMatch);
 
 //Modificar un partido por su ID
-router.put("/:id",matchController);
+router.put("/:id",modifyMatch);
 
 export default router;

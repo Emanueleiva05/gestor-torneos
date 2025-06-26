@@ -1,6 +1,6 @@
-import { Match } from "./Match.js"
+import Match from "./Match.js"
 
-export class Tournament{
+export default class Tournament{
     constructor(id, name){
         this.id = id;
         this.players = [];

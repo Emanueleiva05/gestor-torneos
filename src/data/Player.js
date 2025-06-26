@@ -1,4 +1,4 @@
-export class Player{
+export default class Player{
     constructor(id,name,level,game,victory,defeat,points){
         this.id = id;
         this.name= name;
