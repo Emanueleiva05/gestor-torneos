@@ -13,9 +13,9 @@ router.get("/:id", getTournament);
 router.post("/", setTournament);
 
 //Eliminar un torneo segun un ID
-router.delete("/:id", modifyTournament);
+router.delete("/:id", deleteTournament);
 
 //Modificar un torneo por su ID
-router.put("/:id",deleteTournament);
+router.put("/:id",modifyTournament);
 
 export default router;

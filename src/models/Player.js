@@ -1,12 +1,12 @@
 export default class Player{
-    constructor(id,name,level,game,victory,defeat,points){
+    constructor(id,name,level,game){
         this.id = id;
         this.name= name;
-        this.level = level;
+        this.level = 0;
         this.game = game;
-        this.victory = victory;
-        this.defeat = defeat;
-        this.points = points;
+        this.victory = null;
+        this.defeat = null;
+        this.points = null;
     }
 
     winMatch(){

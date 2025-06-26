@@ -13,9 +13,9 @@ router.get("/:id", getPlayer);
 router.post("/", setPlayer);
 
 //Eliminar un jugador segun un ID
-router.delete("/:id", modifyPlayer);
+router.delete("/:id", deletePlayer);
 
 //Modificar un jugador por su ID
-router.put("/:id",deletePlayer);
+router.put("/:id",modifyPlayer);
 
 export default router;
