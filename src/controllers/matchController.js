@@ -1,4 +1,4 @@
-import Match from "../data/Match.js"
+import Match from "../models/Match.js"
 
 export const getAllMatch = (req,res) => {
 

@@ -1,4 +1,4 @@
-import Tournament from "../data/Tournament.js"
+import Tournament from "../models/Tournament.js"
 
 export const getAllTournament = (req,res) => {
 

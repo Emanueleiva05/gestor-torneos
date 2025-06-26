@@ -1,4 +1,4 @@
-import Player from "../data/Player.js"
+import Player from "../models/Player.js"
 
 export const getAllPlayer = (req,res) => {
 
