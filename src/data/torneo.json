@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "players": [],
+    "matches": [],
+    "name": "Torneo de CS",
+    "dateCreation": "2025-06-26T18:10:09.894Z"
+  },
+  {
+    "id": 2,
+    "players": [],
+    "matches": [],
+    "name": "Torneo de OW",
+    "dateCreation": "2025-06-26T18:10:18.224Z"
+  }
+]

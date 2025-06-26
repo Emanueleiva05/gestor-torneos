@@ -1,6 +1,7 @@
 import Game from "../models/Game.js"
+import { getGames, addGame } from "../data/gameData.js"
 
-let games = [];
+let games = getGames();
 
 export const getAllGames = (req,res) => {
     res.json(games);
@@ -21,6 +22,8 @@ export const setGame = (req,res) => {
     
     games.push(juego);
 
+    addGame(games)
+
     res.send("Juego creado con exito")
 }
 
@@ -28,6 +31,8 @@ export const deleteGame = (req, res) => {
     const id = parseInt(req.params.id);
 
     games = games.filter(g => g.id !== id);
+
+    addGame(games)
 
     res.send("Juego eliminado con exito");
 }
@@ -39,6 +44,8 @@ export const modifyGame = (req,res) => {
 
     games[index].name = name;
     games[index].category = category;
+
+    addGame(games)
 
     res.send("Juego modificado con exito");
 }

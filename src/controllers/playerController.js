@@ -1,6 +1,7 @@
 import Player from "../models/Player.js"
+import {getPlayers, setPlayers} from "../data/playerData.js"
 
-let players = [];
+let players = getPlayers();
 
 export const getAllPlayer = (req,res) => {
     res.json(players);
@@ -21,12 +22,16 @@ export const setPlayer = (req,res) => {
 
     players.push(player);
 
+    setPlayer(players);
+
     res.send("Se creo el jugador con exito");
 }
 
 export const deletePlayer = (req, res) => {
     const id = parseInt(req.params.id);
     players = players.filter(p => p.id !== id);
+
+    setPlayer(players);
 
     res.send("Se elimino el jugador con exito")
 }
@@ -38,6 +43,8 @@ export const modifyPlayer = (req,res) => {
 
     players[index].name = name;
     players[index].game = game;
+
+    setPlayer(players);
 
     res.send("Se modifico el jugador con exito")
 }

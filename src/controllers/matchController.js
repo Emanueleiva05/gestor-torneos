@@ -1,6 +1,7 @@
 import Match from "../models/Match.js"
+import {getMatches, setMatches} from "../data/matchData.js"
 
-let matches = []
+let matches = getMatches();
 
 export const getAllMatch = (req,res) => {
     res.json(matches);
@@ -21,12 +22,16 @@ export const setMatch = (req,res) => {
 
     matches.push(match);
 
+    setMatches(matches);
+
     res.send("Se creo el partido con exito");
 }
 
 export const deleteMatch = (req, res) => {
     const id = parseInt(req.params.id);
     matches = matches.filter(m => m.id !== id);
+
+    setMatches(matches);
 
     res.send("Se elimino el partido con exito")
 }
@@ -39,6 +44,8 @@ export const modifyMatch = (req,res) => {
     matches[index].date = date;
     matches[index].player1 = player1;
     matches[index].player2 = player2;
+
+    setMatches(matches);
 
     res.send("Se modifico el partido con exito")
 };

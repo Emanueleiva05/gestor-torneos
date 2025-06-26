@@ -9,6 +9,10 @@ export default class Player{
         this.points = null;
     }
 
+    levelUp(){
+        this.level += 1;
+    }
+    
     winMatch(){
         this.points += 5;
         this.victory += 1;
