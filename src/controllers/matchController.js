@@ -1,7 +1,10 @@
 import Match from "../models/Match.js"
+import Player from "../models/Player.js"
 import {getMatches, setMatches} from "../data/matchData.js"
+import {getPlayers, savePlayers} from "../data/playerData.js"
 
 let matches = getMatches();
+let players = getPlayers();
 
 export const getAllMatch = (req,res) => {
     res.json(matches);
@@ -17,6 +20,8 @@ export const getMatch = (req,res) => {
 export const setMatch = (req,res) => {
     const id = matches.length === 0 ? 1 : matches.length + 1;
     const { date, player1, player2 } = req.body;
+
+
 
     const match = new Match(id,date,player1,player2,"Amistoso");
 
@@ -49,3 +54,7 @@ export const modifyMatch = (req,res) => {
 
     res.send("Se modifico el partido con exito")
 };
+
+export const winnerMatch = (req,res) => {
+    
+}

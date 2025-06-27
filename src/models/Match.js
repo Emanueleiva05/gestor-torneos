@@ -23,7 +23,7 @@ export default class Match{
     }
 
     chooseRamdom(){
-        const number = Math.random() * (2-1) + 1;
+        const number = Math.floor(Math.random() * 2) + 1;
         if(number === 1){
             console.log("Jugador 1 fue el ganador");
             this.winner = this.player1;
@@ -48,7 +48,7 @@ export default class Match{
         console.log(`Nombre del jugador 1: ${this.player1.name}`);
         console.log(`Nombre del jugador 2: ${this.player2.name}`);
         console.log(`Fecha: ${this.date}`);
-        console.log(`Ganador: ${this.winner}`);
+        console.log(`Ganador: ${this.winner.name}`);
         console.log("-------------------------------------");
     }
 

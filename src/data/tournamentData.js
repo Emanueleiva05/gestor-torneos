@@ -1,6 +1,6 @@
 import fs from "fs"
 
-const PATH = "./src/data/torneo.json"
+const PATH = "./src/data/JSON/torneo.json"
 
 export function setTournaments(tournaments){
     fs.writeFileSync(PATH,JSON.stringify(tournaments, null,2));

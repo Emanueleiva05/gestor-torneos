@@ -3,5 +3,10 @@
     "id": 2,
     "name": "OW",
     "category": "Hero Shooter, Accion"
+  },
+  {
+    "id": 2,
+    "name": "CS",
+    "category": "Shooter"
   }
 ]

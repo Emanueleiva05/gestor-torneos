@@ -1,5 +1,5 @@
 export default class Player{
-    constructor(id,name,level,game){
+    constructor(id,name,game){
         this.id = id;
         this.name= name;
         this.level = 0;

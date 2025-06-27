@@ -1,5 +1,5 @@
 import express from "express"
-import { getAllMatch, getMatch, setMatch, modifyMatch, deleteMatch } from "../controllers/matchController.js"
+import { getAllMatch, getMatch, setMatch, modifyMatch, deleteMatch, winnerMatch } from "../controllers/matchController.js"
 
 const router = express.Router();
 
@@ -17,5 +17,7 @@ router.delete("/:id", deleteMatch);
 
 //Modificar un partido por su ID
 router.put("/:id",modifyMatch);
+
+router.put("/winner/:id", winnerMatch);
 
 export default router;

@@ -1,6 +1,6 @@
 import fs from "fs"
 
-const PATH = "./src/data/juegos.json"
+const PATH = "./src/data/JSON/juegos.json"
 
 export function addGame(games){
     fs.writeFileSync(PATH,JSON.stringify(games, null,2));

@@ -14,7 +14,10 @@ app.use("/player", playerRoutes);
 app.use("/match", matchRoutes);
 app.use("/tournament", tournamentRoutes);
 
+
+
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en ${PORT}`)
 })
+
 

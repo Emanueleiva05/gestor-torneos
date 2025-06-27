@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "date": "Fecha",
+    "player1": {
+      "id": 1,
+      "name": "Emalei05",
+      "level": 0,
+      "game": {
+        "name": "CS",
+        "category": "Shooter"
+      },
+      "victory": null,
+      "defeat": null,
+      "points": null
+    },
+    "player2": {
+      "id": 2,
+      "name": "TM07",
+      "level": 0,
+      "game": {
+        "name": "CS",
+        "category": "Shooter"
+      },
+      "victory": null,
+      "defeat": null,
+      "points": null
+    },
+    "winner": null,
+    "type": "Amistoso",
+    "puntuacion": null
+  }
+]
