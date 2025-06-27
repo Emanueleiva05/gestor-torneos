@@ -1,6 +1,6 @@
 import Match from "../models/Match.js"
 import Player from "../models/Player.js"
-import {getMatches, setMatches} from "../data/matchData.js"
+import {getMatches, saveMatches} from "../data/matchData.js"
 import {getPlayers, savePlayers} from "../data/playerData.js"
 
 let matches = getMatches();
@@ -27,7 +27,7 @@ export const setMatch = (req,res) => {
 
     matches.push(match);
 
-    setMatches(matches);
+    saveMatches(matches);
 
     res.send("Se creo el partido con exito");
 }

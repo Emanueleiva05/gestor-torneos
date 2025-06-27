@@ -13,7 +13,14 @@ export function getPlayers() {
     }else{
         const response = fs.readFileSync(PATH,"utf-8");
         const data = JSON.parse(response);
-        const players = data.map(p => new Player(p.id,p.name,p.game));
+        const players = data.map(p => {
+            let player = new Player(p.id,p.name,p.game);
+            player.level = p.level;
+            player.victory = p.victory;
+            player.defeat = p.defeat;
+            player.points = p.points;
+            return player
+        });
         return players;
     }
 }

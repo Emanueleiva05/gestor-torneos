@@ -1,5 +1,5 @@
 import Tournament from "../models/Tournament.js"
-import {getTournaments, setTournaments} from "../data/tournamentData.js"
+import {getTournaments, saveTournaments} from "../data/tournamentData.js"
 
 let tournaments = getTournaments();
 
@@ -22,7 +22,7 @@ export const setTournament = (req,res) => {
 
     tournaments.push(tournament);
 
-    setTournaments(tournaments);
+    saveTournaments(tournaments);
 
     res.send("Se creo el Torneo con exito");
 }

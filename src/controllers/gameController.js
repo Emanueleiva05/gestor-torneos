@@ -1,5 +1,5 @@
 import Game from "../models/Game.js"
-import { getGames, addGame } from "../data/gameData.js"
+import { getGames, saveGame } from "../data/gameData.js"
 
 let games = getGames();
 
@@ -22,7 +22,7 @@ export const setGame = (req,res) => {
     
     games.push(juego);
 
-    addGame(games)
+    saveGame(games)
 
     res.send("Juego creado con exito")
 }
