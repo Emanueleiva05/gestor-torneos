@@ -1,5 +1,5 @@
 import fs from "fs"
-import Tournament from "../models/Tournament";
+import Tournament from "../models/Tournament.js";
 
 const PATH = "./src/data/JSON/torneo.json"
 

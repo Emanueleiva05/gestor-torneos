@@ -32,7 +32,7 @@ export const deleteGame = (req, res) => {
 
     games = games.filter(g => g.id !== id);
 
-    addGame(games)
+    saveGame(games)
 
     res.send("Juego eliminado con exito");
 }
@@ -45,7 +45,7 @@ export const modifyGame = (req,res) => {
     games[index].name = name;
     games[index].category = category;
 
-    addGame(games)
+    saveGame(games)
 
     res.send("Juego modificado con exito");
 }

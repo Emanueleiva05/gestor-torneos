@@ -1,7 +1,11 @@
 import Tournament from "../models/Tournament.js"
 import {getTournaments, saveTournaments} from "../data/tournamentData.js"
+import {getPlayers, savePlayers} from "../data/playerData.js"
+import {getMatches, saveMatches} from "../data/matchData.js"
 
 let tournaments = getTournaments();
+let players = getPlayers();
+let matches = getMatches();
 
 export const getAllTournament = (req,res) => {
     res.json(tournaments);
@@ -21,7 +25,6 @@ export const setTournament = (req,res) => {
     const tournament = new Tournament(id,name);
 
     tournaments.push(tournament);
-
     saveTournaments(tournaments);
 
     res.send("Se creo el Torneo con exito");
@@ -31,8 +34,7 @@ export const deleteTournament = (req, res) => {
     const id = parseInt(req.params.id);
     tournaments = tournaments.filter(t => t.id !== id);
 
-    setTournaments(tournaments);
-
+    saveTournaments(tournaments);
     res.send("Se elimino el torneo con exito")
 }
 
@@ -42,8 +44,7 @@ export const modifyTournament = (req,res) => {
     const index = tournaments.findIndex(t => t.id === id)
 
     tournaments[index].name = name;
-
-    setTournaments(tournaments);
+    saveTournaments(tournaments);
 
     res.send("Se modifico el torneo con exito")
 }

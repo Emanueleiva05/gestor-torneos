@@ -19,14 +19,14 @@ export const getMatch = (req,res) => {
 
 export const setMatch = (req,res) => {
     const id = matches.length === 0 ? 1 : matches.length + 1;
-    const { date, player1, player2 } = req.body;
+    const { date, idPlayer1, idPlayer2 } = req.body;
 
-
+    const player1 = players.find(p => p.id === parseInt(idPlayer1));
+    const player2 = players.find(p => p.id === parseInt(idPlayer2));
 
     const match = new Match(id,date,player1,player2,"Amistoso");
 
     matches.push(match);
-
     saveMatches(matches);
 
     res.send("Se creo el partido con exito");
@@ -36,21 +36,25 @@ export const deleteMatch = (req, res) => {
     const id = parseInt(req.params.id);
     matches = matches.filter(m => m.id !== id);
 
-    setMatches(matches);
+    savePlayers(matches);
 
     res.send("Se elimino el partido con exito")
 }
 
 export const modifyMatch = (req,res) => {
     const id = parseInt(req.params.id);
-    const { date, player1, player2 } = req.body;
+    const { date, idPlayer1, idPlayer2 } = req.body;
+
+    const player1 = players.find(p => p.id === parseInt(idPlayer1));
+    const player2 = players.find(p => p.id === parseInt(idPlayer2));
+    
     const index = matches.findIndex(m => m.id === id)
 
     matches[index].date = date;
     matches[index].player1 = player1;
     matches[index].player2 = player2;
 
-    setMatches(matches);
+    savePlayers(matches);
 
     res.send("Se modifico el partido con exito")
 };

@@ -29,5 +29,38 @@
     "winner": null,
     "type": "Amistoso",
     "puntuacion": null
+  },
+  {
+    "id": 2,
+    "date": "fecha",
+    "player1": {
+      "id": 3,
+      "name": "BrisaLope02",
+      "level": 0,
+      "game": {
+        "id": 2,
+        "name": "CS",
+        "category": "Shooter"
+      },
+      "victory": null,
+      "defeat": null,
+      "points": null
+    },
+    "player2": {
+      "id": 4,
+      "name": "QuimeyCH27",
+      "level": 0,
+      "game": {
+        "id": 2,
+        "name": "CS",
+        "category": "Shooter"
+      },
+      "victory": null,
+      "defeat": null,
+      "points": null
+    },
+    "winner": null,
+    "type": "Amistoso",
+    "puntuacion": null
   }
 ]
