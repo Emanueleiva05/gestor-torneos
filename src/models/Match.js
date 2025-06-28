@@ -10,10 +10,8 @@ export default class Match{
 
     simulateGame(){
         if(this.player1.level > this.player2.level){
-            console.log("Jugador 1 fue el ganador");
             this.winner = this.player1;
         }else if(this.player1.level < this.player2.level){
-            console.log("Jugador 2 fue el ganador");
             this.winner = this.player2;
         }else{
             this.chooseRamdom();
@@ -24,10 +22,8 @@ export default class Match{
     chooseRamdom(){
         const number = Math.floor(Math.random() * 2) + 1;
         if(number === 1){
-            console.log("Jugador 1 fue el ganador");
             this.winner = this.player1;
         }else{
-            console.log("Jugador 2 fue el ganador");
             this.winner = this.player2;
         }
     }
@@ -44,11 +40,6 @@ export default class Match{
     }
 
     summary(){
-        console.log("-------------------------------------");
-        console.log(`Nombre del jugador 1: ${this.player1.name}`);
-        console.log(`Nombre del jugador 2: ${this.player2.name}`);
-        console.log(`Fecha: ${this.date}`);
-        console.log(`Ganador: ${this.winner.name}`);
-        console.log("-------------------------------------");
+        return this;
     }
 }
