@@ -1,49 +1,51 @@
 [
   {
     "id": 1,
-    "name": "Emalei05",
-    "level": 0,
+    "name": "EmaLei05",
+    "level": 1,
     "game": {
-      "name": "CS",
-      "category": "Shooter"
+      "id": 1,
+      "name": "OW",
+      "category": "Hero Shooter, Accion"
     },
-    "victory": 0,
+    "victory": 1,
     "defeat": 0,
-    "points": 0
+    "points": 5
   },
   {
     "id": 2,
-    "name": "TM07",
-    "level": 0,
+    "name": "BrisaLopez",
+    "level": 3,
     "game": {
-      "name": "CS",
-      "category": "Shooter"
+      "id": 1,
+      "name": "OW",
+      "category": "Hero Shooter, Accion"
     },
-    "victory": 0,
+    "victory": 3,
     "defeat": 0,
-    "points": 0
+    "points": 15
   },
   {
     "id": 3,
-    "name": "BrisaLope02",
+    "name": "QuimeyCh",
     "level": 0,
     "game": {
-      "id": 2,
-      "name": "CS",
-      "category": "Shooter"
+      "id": 1,
+      "name": "OW",
+      "category": "Hero Shooter, Accion"
     },
     "victory": 0,
-    "defeat": 0,
-    "points": 0
+    "defeat": 4,
+    "points": -8
   },
   {
     "id": 4,
-    "name": "QuimeyCH27",
+    "name": "Camil",
     "level": 0,
     "game": {
-      "id": 2,
-      "name": "CS",
-      "category": "Shooter"
+      "id": 1,
+      "name": "OW",
+      "category": "Hero Shooter, Accion"
     },
     "victory": 0,
     "defeat": 0,

@@ -2,7 +2,6 @@ import Tournament from "../models/Tournament.js"
 import {getTournaments, saveTournaments} from "../data/tournamentData.js"
 import {getPlayers} from "../data/playerData.js"
 import {getMatches, saveMatches} from "../data/matchData.js"
-import { type } from "express/lib/response.js";
 
 let tournaments = getTournaments();
 let players = getPlayers();

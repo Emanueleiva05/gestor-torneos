@@ -1,95 +1,178 @@
 [
   {
     "id": 1,
-    "date": "Fecha",
+    "date": "fecha",
     "player1": {
       "id": 1,
-      "name": "Emalei05",
-      "level": 0,
+      "name": "EmaLei05",
+      "level": 1,
       "game": {
-        "name": "CS",
-        "category": "Shooter"
+        "id": 1,
+        "name": "OW",
+        "category": "Hero Shooter, Accion"
       },
-      "victory": null,
-      "defeat": null,
-      "points": null
+      "victory": 1,
+      "defeat": 0,
+      "points": 5
     },
     "player2": {
-      "id": 2,
-      "name": "TM07",
+      "id": 3,
+      "name": "QuimeyCh",
       "level": 0,
       "game": {
-        "name": "CS",
-        "category": "Shooter"
+        "id": 1,
+        "name": "OW",
+        "category": "Hero Shooter, Accion"
       },
-      "victory": null,
-      "defeat": null,
-      "points": null
+      "victory": 0,
+      "defeat": 1,
+      "points": -2
     },
-    "winner": null,
+    "winner": {
+      "id": 1,
+      "name": "EmaLei05",
+      "level": 1,
+      "game": {
+        "id": 1,
+        "name": "OW",
+        "category": "Hero Shooter, Accion"
+      },
+      "victory": 1,
+      "defeat": 0,
+      "points": 5
+    },
     "type": "Amistoso"
   },
   {
     "id": 2,
     "date": "fecha",
     "player1": {
-      "id": 3,
-      "name": "BrisaLope02",
-      "level": 0,
+      "id": 2,
+      "name": "BrisaLopez",
+      "level": 1,
       "game": {
-        "id": 2,
-        "name": "CS",
-        "category": "Shooter"
+        "id": 1,
+        "name": "OW",
+        "category": "Hero Shooter, Accion"
       },
-      "victory": null,
-      "defeat": null,
-      "points": null
+      "victory": 1,
+      "defeat": 0,
+      "points": 5
     },
     "player2": {
-      "id": 4,
-      "name": "QuimeyCH27",
+      "id": 3,
+      "name": "QuimeyCh",
       "level": 0,
       "game": {
-        "id": 2,
-        "name": "CS",
-        "category": "Shooter"
+        "id": 1,
+        "name": "OW",
+        "category": "Hero Shooter, Accion"
       },
-      "victory": null,
-      "defeat": null,
-      "points": null
+      "victory": 0,
+      "defeat": 2,
+      "points": -4
     },
-    "winner": null,
+    "winner": {
+      "id": 2,
+      "name": "BrisaLopez",
+      "level": 1,
+      "game": {
+        "id": 1,
+        "name": "OW",
+        "category": "Hero Shooter, Accion"
+      },
+      "victory": 1,
+      "defeat": 0,
+      "points": 5
+    },
     "type": "Amistoso"
   },
   {
-    "id": 0,
-    "date": "2025-06-28T01:44:28.981Z",
+    "id": 3,
+    "date": "fecha",
     "player1": {
       "id": 2,
-      "name": "TM07",
-      "level": 0,
+      "name": "BrisaLopez",
+      "level": 2,
       "game": {
-        "name": "CS",
-        "category": "Shooter"
+        "id": 1,
+        "name": "OW",
+        "category": "Hero Shooter, Accion"
       },
-      "victory": null,
-      "defeat": null,
-      "points": null
+      "victory": 2,
+      "defeat": 0,
+      "points": 10
     },
     "player2": {
-      "id": 4,
-      "name": "QuimeyCH27",
+      "id": 3,
+      "name": "QuimeyCh",
       "level": 0,
       "game": {
-        "id": 2,
-        "name": "CS",
-        "category": "Shooter"
+        "id": 1,
+        "name": "OW",
+        "category": "Hero Shooter, Accion"
       },
-      "victory": null,
-      "defeat": null,
-      "points": null
+      "victory": 0,
+      "defeat": 3,
+      "points": -6
     },
-    "winner": null,
-    "type": "Torneo"
+    "winner": {
+      "id": 2,
+      "name": "BrisaLopez",
+      "level": 2,
+      "game": {
+        "id": 1,
+        "name": "OW",
+        "category": "Hero Shooter, Accion"
+      },
+      "victory": 2,
+      "defeat": 0,
+      "points": 10
+    },
+    "type": "Amistoso"
+  },
+  {
+    "id": 4,
+    "date": "fecha",
+    "player1": {
+      "id": 2,
+      "name": "BrisaLopez",
+      "level": 3,
+      "game": {
+        "id": 1,
+        "name": "OW",
+        "category": "Hero Shooter, Accion"
+      },
+      "victory": 3,
+      "defeat": 0,
+      "points": 15
+    },
+    "player2": {
+      "id": 3,
+      "name": "QuimeyCh",
+      "level": 0,
+      "game": {
+        "id": 1,
+        "name": "OW",
+        "category": "Hero Shooter, Accion"
+      },
+      "victory": 0,
+      "defeat": 4,
+      "points": -8
+    },
+    "winner": {
+      "id": 2,
+      "name": "BrisaLopez",
+      "level": 3,
+      "game": {
+        "id": 1,
+        "name": "OW",
+        "category": "Hero Shooter, Accion"
+      },
+      "victory": 3,
+      "defeat": 0,
+      "points": 15
+    },
+    "type": "Amistoso"
   }
 ]
