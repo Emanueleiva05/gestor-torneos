@@ -8,7 +8,46 @@
   },
   {
     "id": 2,
-    "players": [],
+    "players": [
+      {
+        "id": 2,
+        "name": "TM07",
+        "level": 0,
+        "game": {
+          "name": "CS",
+          "category": "Shooter"
+        },
+        "victory": null,
+        "defeat": null,
+        "points": null
+      },
+      {
+        "id": 4,
+        "name": "QuimeyCH27",
+        "level": 0,
+        "game": {
+          "id": 2,
+          "name": "CS",
+          "category": "Shooter"
+        },
+        "victory": null,
+        "defeat": null,
+        "points": null
+      },
+      {
+        "id": 3,
+        "name": "BrisaLope02",
+        "level": 0,
+        "game": {
+          "id": 2,
+          "name": "CS",
+          "category": "Shooter"
+        },
+        "victory": null,
+        "defeat": null,
+        "points": null
+      }
+    ],
     "matches": [],
     "name": "Torneo de OW",
     "dateCreation": "2025-06-26T18:10:18.224Z"

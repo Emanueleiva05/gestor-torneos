@@ -30,36 +30,16 @@ export default class Tournament{
     }
 
     listarJugadores(){
-        this.players.forEach(p => {
-            console.log("--------------------------------");
-            console.log(`Nombre: ${p.name}`);
-            console.log(`Nivel: ${p.level}`);
-            console.log(`Victorias: ${p.victory}`);
-            console.log(`Derrotas: ${p.defeat}`);
-            console.log(`Puntos: ${p.points}`);
-        })
+        return this.players;
     }
 
     verHistorial(){
-        this.matches.forEach(m => {
-            console.log("--------------------------------");
-            console.log(`Fecha: ${m.date}`);
-            console.log(`Jugador 1: ${m.player1.name}`);
-            console.log(`Jugador 2: ${m.player2.name}`);
-            console.log(`Ganador: ${m.winner}`);
-            console.log(`Tipo: ${m.type}`);
-        })
+        return this.matches;
     }
 
     buscarJugadorPorNombre(nombre){
         const player = this.players.find(p => p.name === nombre);
-        console.log("--------------------------------");
-        console.log(`Nombre: ${player.name}`);
-        console.log(`Nivel: ${player.level}`);
-        console.log(`Victorias: ${player.victory}`);
-        console.log(`Derrotas: ${player.defeat}`);
-        console.log(`Puntos: ${player.points}`);  
-        console.log("--------------------------------");        
+        return player;      
     }
 
     eliminarJugador(id){
@@ -71,12 +51,6 @@ export default class Tournament{
             return actual.points > maximo.points ? actual : maximo;
         })
 
-        console.log("--------------------------------");
-        console.log(`Nombre: ${player.name}`);
-        console.log(`Nivel: ${player.level}`);
-        console.log(`Victorias: ${player.victory}`);
-        console.log(`Derrotas: ${player.defeat}`);
-        console.log(`Puntos: ${player.points}`);  
-        console.log("--------------------------------");   
+        return player; 
     }
 }

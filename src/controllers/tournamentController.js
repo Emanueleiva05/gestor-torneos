@@ -48,3 +48,44 @@ export const modifyTournament = (req,res) => {
 
     res.send("Se modifico el torneo con exito")
 }
+
+export const addPlayer = (req, res) => {
+    const idTournament = req.params.idTournament;
+    const idPlayer = req.params.idPlayer;
+    const player = players.find(p => p.id === parseInt(idPlayer));
+    const indexTournament = tournaments.findIndex(t => t.id === parseInt(idTournament));
+
+    tournaments[indexTournament].agregarJugador(player);
+    saveTournaments(tournaments);
+
+    res.send("Jugador agregado correctamente")
+}
+
+export const getAllPlayer = (req, res) => {
+    const idTournament = req.params.id;
+    const index = tournaments.findIndex(t => t.id === parseInt(idTournament));
+
+    res.json(tournaments[index].listarJugadores());
+}
+
+export const deletePlayer = (req,res) => {
+    const idTournament = req.params.idTournament;
+    const idPlayer = req.params.idPlayer;
+    const indexTournament = tournaments.findIndex(t => t.id === parseInt(idTournament));
+
+    tournaments[indexTournament].eliminarJugador(idPlayer);
+    saveTournaments(tournaments);
+
+    res.send("Jugador eliminado");
+}
+
+export const createMatch = (req,res) => {
+    
+}
+
+export const getAllMatches = (req, res) => {
+    const idTournament = req.params.id;
+    const index = tournaments.findIndex(t => t.id === parseInt(idTournament));
+
+    res.json(tournaments[index].verHistorial());
+}
