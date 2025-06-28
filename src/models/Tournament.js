@@ -19,7 +19,7 @@ export default class Tournament{
     }
 
     crearPartida(namePlayer1,namePlayer2){
-        const id = this.matches.length === 0 ? 0 : this.matches.length + 1 
+        const id = this.matches.length === 0 ? 1 : this.matches.length + 1 
         const date = new Date();
         const type = "Torneo";
 

@@ -4,9 +4,9 @@ export default class Player{
         this.name= name;
         this.level = 0;
         this.game = game;
-        this.victory = null;
-        this.defeat = null;
-        this.points = null;
+        this.victory = 0;
+        this.defeat = 0;
+        this.points = 0;
     }
 
     levelUp(){

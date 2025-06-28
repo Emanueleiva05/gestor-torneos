@@ -7,9 +7,9 @@
       "name": "CS",
       "category": "Shooter"
     },
-    "victory": null,
-    "defeat": null,
-    "points": null
+    "victory": 0,
+    "defeat": 0,
+    "points": 0
   },
   {
     "id": 2,
@@ -19,9 +19,9 @@
       "name": "CS",
       "category": "Shooter"
     },
-    "victory": null,
-    "defeat": null,
-    "points": null
+    "victory": 0,
+    "defeat": 0,
+    "points": 0
   },
   {
     "id": 3,
@@ -32,9 +32,9 @@
       "name": "CS",
       "category": "Shooter"
     },
-    "victory": null,
-    "defeat": null,
-    "points": null
+    "victory": 0,
+    "defeat": 0,
+    "points": 0
   },
   {
     "id": 4,
@@ -45,8 +45,8 @@
       "name": "CS",
       "category": "Shooter"
     },
-    "victory": null,
-    "defeat": null,
-    "points": null
+    "victory": 0,
+    "defeat": 0,
+    "points": 0
   }
 ]
