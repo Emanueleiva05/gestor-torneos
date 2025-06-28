@@ -24,7 +24,7 @@ router.get("/:id/player", getAllPlayer);
 
 router.delete("/:idTournament/player/:idPlayer", deletePlayer);
 
-router.put("/match", createMatch);
+router.put("/:id/match", createMatch);
 
 router.get("/:id/match", getAllMatches);
 

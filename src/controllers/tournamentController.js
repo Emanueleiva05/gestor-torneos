@@ -1,6 +1,6 @@
 import Tournament from "../models/Tournament.js"
 import {getTournaments, saveTournaments} from "../data/tournamentData.js"
-import {getPlayers, savePlayers} from "../data/playerData.js"
+import {getPlayers} from "../data/playerData.js"
 import {getMatches, saveMatches} from "../data/matchData.js"
 
 let tournaments = getTournaments();
@@ -80,7 +80,16 @@ export const deletePlayer = (req,res) => {
 }
 
 export const createMatch = (req,res) => {
+    const {namePlayer1, namePlayer2 } = req.body;
+    const id = parseInt(req.params.id);
+    const index = tournaments.findIndex(t => t.id === id);
+
+    const match = tournaments[index].crearPartida(namePlayer1, namePlayer2);
+
+    matches.push(match);
+    saveMatches(matches);
     
+    res.send("Se creo el partido");
 }
 
 export const getAllMatches = (req, res) => {

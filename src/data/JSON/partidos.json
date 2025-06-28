@@ -60,5 +60,36 @@
     },
     "winner": null,
     "type": "Amistoso"
+  },
+  {
+    "id": 0,
+    "date": "2025-06-28T01:44:28.981Z",
+    "player1": {
+      "id": 2,
+      "name": "TM07",
+      "level": 0,
+      "game": {
+        "name": "CS",
+        "category": "Shooter"
+      },
+      "victory": null,
+      "defeat": null,
+      "points": null
+    },
+    "player2": {
+      "id": 4,
+      "name": "QuimeyCH27",
+      "level": 0,
+      "game": {
+        "id": 2,
+        "name": "CS",
+        "category": "Shooter"
+      },
+      "victory": null,
+      "defeat": null,
+      "points": null
+    },
+    "winner": null,
+    "type": "Torneo"
   }
 ]

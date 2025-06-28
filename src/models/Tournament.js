@@ -26,7 +26,7 @@ export default class Tournament{
         const player1 = this.players.find(p => p.name === namePlayer1);
         const player2 = this.players.find(p => p.name === namePlayer2);
 
-        this.matches.push(new Match(id,date,player1,player2,type));
+        return new Match(id,date,player1,player2,type);
     }
 
     listarJugadores(){
