@@ -6,7 +6,6 @@ export default class Match{
         this.player2 = player2;
         this.winner = null;
         this.type = type;
-        this.puntuacion = null;
     }
 
     simulateGame(){
@@ -36,6 +35,7 @@ export default class Match{
     saveResult(){
         if(this.winner === this.player1){
             this.player1.winMatch();
+            this.player1.levelUp();
             this.player2.loseMatch();
         }else{
             this.player2.winMatch();
@@ -51,6 +51,4 @@ export default class Match{
         console.log(`Ganador: ${this.winner.name}`);
         console.log("-------------------------------------");
     }
-
-
 }

@@ -6,6 +6,18 @@ import {getPlayers, savePlayers} from "../data/playerData.js"
 let matches = getMatches();
 let players = getPlayers();
 
+function createObjectPlayer(player){
+    const playerFS = players.find(p => p.id === player.id);
+    
+    let playerFound = new Player(playerFS.id,playerFS.name,playerFS.game);
+    playerFound.defeat = playerFS.defeat;
+    playerFound.level = playerFS.level;
+    playerFound.victory = playerFS.victory;
+    playerFound.points = playerFS.points;
+
+    return playerFound;
+}
+
 export const getAllMatch = (req,res) => {
     res.json(matches);
 }
@@ -59,6 +71,16 @@ export const modifyMatch = (req,res) => {
     res.send("Se modifico el partido con exito")
 };
 
+//Agregar que no se permita mas esto a un partido con winner ya puesto
 export const winnerMatch = (req,res) => {
-    
+    const id = parseInt(req.params.id);
+
+    const index = matches.findIndex(m => m.id === id);
+
+    matches[index].player1 = createObjectPlayer(matches[index].player1)
+    matches[index].player2 = createObjectPlayer(matches[index].player2)
+
+    matches[index].simulateGame();
+
+    res.send("Juego simulado")
 }

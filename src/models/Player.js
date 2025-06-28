@@ -32,6 +32,4 @@ export default class Player{
         this.defeat = 0;
         this.points = 0;
     }
-
-    
 }

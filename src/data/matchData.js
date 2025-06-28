@@ -16,7 +16,6 @@ export function getMatches() {
         const matches = data.map(m => {
            let match = new Match(m.id,m.date,m.player1,m.player2,m.type)
            match.winner = m.winner;
-           match.puntuacion = m.puntuacion;
            return match;
         });
         return matches;
