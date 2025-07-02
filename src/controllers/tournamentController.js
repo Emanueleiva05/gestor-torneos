@@ -2,17 +2,18 @@ import Tournament from "../models/Tournament.js"
 import {getTournaments, saveTournaments} from "../data/tournamentData.js"
 import {getPlayers} from "../data/playerData.js"
 import {getMatches, saveMatches} from "../data/matchData.js"
-
-let tournaments = getTournaments();
-let players = getPlayers();
-let matches = getMatches();
+import { createObjectMatch, saveMatch } from "../service/tournamentService.js"
 
 export const getAllTournament = (req,res) => {
+    let tournaments = getTournaments();
+
     res.json(tournaments);
 }
 
 export const getTournament = (req,res) => {
     try{
+        let tournaments = getTournaments();
+
         const id = parseInt(req.params.id);
         const tournament = tournaments.find(t => t.id === id);
 
@@ -28,6 +29,8 @@ export const getTournament = (req,res) => {
 
 export const setTournament = (req,res) => {
     try{
+        let tournaments = getTournaments();
+
         const id = tournaments.length === 0 ? 1 : tournaments.length + 1;
         const { name } = req.body;
     
@@ -52,6 +55,8 @@ export const setTournament = (req,res) => {
 
 export const deleteTournament = (req, res) => {
     try{
+        let tournaments = getTournaments();
+
         const id = parseInt(req.params.id);
 
         if(!tournaments.some(t => t.id === id)){
@@ -69,6 +74,8 @@ export const deleteTournament = (req, res) => {
 
 export const modifyTournament = (req,res) => {
     try{
+        let tournaments = getTournaments();
+
         const id = parseInt(req.params.id);
         const { name } = req.body;
         
@@ -97,6 +104,9 @@ export const modifyTournament = (req,res) => {
 
 export const addPlayer = (req, res) => {
     try{
+        let tournaments = getTournaments();
+        let players = getPlayers();
+
         const idTournament = req.params.idTournament;
         const idPlayer = req.params.idPlayer;
         const player = players.find(p => p.id === parseInt(idPlayer));
@@ -121,6 +131,8 @@ export const addPlayer = (req, res) => {
 
 export const getAllPlayer = (req, res) => {
    try{
+        let tournaments = getTournaments();
+
         const idTournament = req.params.id;
         const index = tournaments.findIndex(t => t.id === parseInt(idTournament));
 
@@ -136,6 +148,9 @@ export const getAllPlayer = (req, res) => {
 
 export const deletePlayer = (req,res) => {
     try{
+        let tournaments = getTournaments();
+        let players = getPlayers();
+
         const idTournament = req.params.idTournament;
         const idPlayer = req.params.idPlayer;
         const indexTournament = tournaments.findIndex(t => t.id === parseInt(idTournament));
@@ -159,6 +174,9 @@ export const deletePlayer = (req,res) => {
 
 export const createMatch = (req,res) => {
     try{
+        let tournaments = getTournaments();
+        let matches = getMatches();
+
         const {namePlayer1, namePlayer2 } = req.body;
         const id = parseInt(req.params.id);
         const index = tournaments.findIndex(t => t.id === id);
@@ -170,8 +188,11 @@ export const createMatch = (req,res) => {
         const match = tournaments[index].crearPartida(namePlayer1, namePlayer2);
     
         matches.push(match);
+        tournaments[index].matches.push(match)
+
         saveMatches(matches);
-        
+        saveTournaments(tournaments)
+
         res.send("Se creo el partido");
     }catch(error){
         res.status(404).send(error.message);
@@ -180,6 +201,8 @@ export const createMatch = (req,res) => {
 
 export const getAllMatches = (req, res) => {
     try{
+        let tournaments = getTournaments();
+
         const idTournament = req.params.id;
         const index = tournaments.findIndex(t => t.id === parseInt(idTournament));
         
@@ -190,5 +213,48 @@ export const getAllMatches = (req, res) => {
         res.json(tournaments[index].verHistorial());
     }catch(error){
         res.status(404).send(error.message);
+    }
+}
+
+export const winnerMatch = (req, res) => {
+    try{
+        let tournaments = getTournaments();
+
+        const idTournament = parseInt(req.params.idTournament);
+        const idMatch = parseInt(req.params.idMatch);
+    
+        const indexTournament = tournaments.findIndex(t => t.id === idTournament);
+        
+        if (indexTournament === -1) {
+            return res.status(404).json({ error: "Torneo no encontrado" });
+        }
+        
+        const match = tournaments[indexTournament].matches.find(m => m.id === idMatch);
+            
+        if (!match) {
+            return res.status(404).json({ error: "Partido no encontrado" });
+        }
+        if (match.winner) {
+            return res.status(400).json({ error: "El partido ya tiene ganador" });
+        }
+
+        let matchFound = createObjectMatch(match);
+        
+        matchFound.simulateGame();
+    
+        const idx = tournaments[indexTournament].matches.findIndex(m => m.id === idMatch);
+        
+        if (idx !== -1) {
+            tournaments[indexTournament].matches[idx] = matchFound;
+        } else {
+            tournaments[indexTournament].matches.push(matchFound);
+        }
+        saveTournaments(tournaments);        
+
+        saveMatch(matchFound);
+
+        res.send("Partido simulado correctamente")
+    }catch(error){
+        res.send(error.message);
     }
 }

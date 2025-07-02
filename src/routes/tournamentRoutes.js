@@ -1,5 +1,5 @@
 import express from "express"
-import { getAllTournament, getTournament, setTournament, modifyTournament, deleteTournament, addPlayer, createMatch, getAllPlayer, getAllMatches, deletePlayer } from "../controllers/tournamentController.js"
+import { getAllTournament, getTournament, setTournament, modifyTournament, deleteTournament, addPlayer, createMatch, getAllPlayer, getAllMatches, deletePlayer, winnerMatch } from "../controllers/tournamentController.js"
 
 const router = express.Router();
 
@@ -27,5 +27,7 @@ router.delete("/:idTournament/player/:idPlayer", deletePlayer);
 router.put("/:id/match", createMatch);
 
 router.get("/:id/match", getAllMatches);
+
+router.put("/:idTournament/match/:idMatch/winner", winnerMatch);
 
 export default router;

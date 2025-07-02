@@ -1,11 +1,7 @@
 import Player from "../models/Player.js"
-import {getTournaments} from "../data/tournamentData.js"
-import {getPlayers} from "../data/playerData.js"
-import {getMatches} from "../data/matchData.js"
+import {getPlayers, savePlayers} from "../data/playerData.js"
 
-let tournaments = getTournaments();
 let players = getPlayers();
-let matches = getMatches();
 
 export function createObjectPlayer(player){
     const playerFS = players.find(p => p.id === player.id);
