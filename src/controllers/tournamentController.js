@@ -2,7 +2,7 @@ import Tournament from "../models/Tournament.js"
 import {getTournaments, saveTournaments} from "../data/tournamentData.js"
 import {getPlayers} from "../data/playerData.js"
 import {getMatches, saveMatches} from "../data/matchData.js"
-import { createObjectMatch, saveMatch } from "../service/proyectoService.js"
+import { createObjectMatch, saveMatch } from "../service/domainService.js"
 
 export const getAllTournament = (req,res) => {
     let tournaments = getTournaments();
