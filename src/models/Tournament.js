@@ -26,6 +26,10 @@ export default class Tournament{
         const player1 = this.players.find(p => p.name === namePlayer1);
         const player2 = this.players.find(p => p.name === namePlayer2);
 
+        if(!player1 || !player2){
+            throw new Error("Jugadores no participan del torneo");
+        }
+
         return new Match(id,date,player1,player2,type);
     }
 

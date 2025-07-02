@@ -186,7 +186,7 @@ export const createMatch = (req,res) => {
         }
     
         const match = tournaments[index].crearPartida(namePlayer1, namePlayer2);
-    
+        
         matches.push(match);
         tournaments[index].matches.push(match)
 
@@ -225,15 +225,17 @@ export const winnerMatch = (req, res) => {
     
         const indexTournament = tournaments.findIndex(t => t.id === idTournament);
         
+
         if (indexTournament === -1) {
             return res.status(404).json({ error: "Torneo no encontrado" });
         }
         
         const match = tournaments[indexTournament].matches.find(m => m.id === idMatch);
-            
+
         if (!match) {
             return res.status(404).json({ error: "Partido no encontrado" });
         }
+
         if (match.winner) {
             return res.status(400).json({ error: "El partido ya tiene ganador" });
         }
@@ -241,20 +243,59 @@ export const winnerMatch = (req, res) => {
         let matchFound = createObjectMatch(match);
         
         matchFound.simulateGame();
-    
-        const idx = tournaments[indexTournament].matches.findIndex(m => m.id === idMatch);
-        
-        if (idx !== -1) {
-            tournaments[indexTournament].matches[idx] = matchFound;
-        } else {
-            tournaments[indexTournament].matches.push(matchFound);
-        }
-        saveTournaments(tournaments);        
 
+        saveTournaments(tournaments);        
         saveMatch(matchFound);
 
         res.send("Partido simulado correctamente")
     }catch(error){
         res.send(error.message);
+    }
+}
+
+export const bestPlayer = (req,res) => {
+    try{
+        let tournaments = getTournaments();
+        const id = parseInt(req.params.id);
+    
+        const tournamentFind = tournaments.find(t => t.id === id);
+
+        if(!tournamentFind){
+            throw new Error("No se encontro del torneo");
+        }
+
+        let tournament = new Tournament(tournamentFind.id, tournamentFind.name);
+        tournament.players = tournamentFind.players;
+        tournament.matches = tournamentFind.matches;
+        tournament.dateCreation = tournamentFind.dateCreation;
+
+        res.json(tournament.mejorJugador());
+
+    }catch(error){
+        res.status(404).send(error.message)
+    }
+}
+
+export const searchPlayer = (req,res) => {
+    try{
+        let tournaments = getTournaments();
+        const id = parseInt(req.params.id);
+        const { name } = req.body
+    
+        const tournamentFind = tournaments.find(t => t.id === id);
+
+        if(!tournamentFind){
+            throw new Error("No se encontro del torneo");
+        }
+
+        let tournament = new Tournament(tournamentFind.id, tournamentFind.name);
+        tournament.players = tournamentFind.players;
+        tournament.matches = tournamentFind.matches;
+        tournament.dateCreation = tournamentFind.dateCreation;
+
+        res.json(tournament.buscarJugadorPorNombre(name));
+
+    }catch(error){
+        res.status(404).send(error.message)
     }
 }

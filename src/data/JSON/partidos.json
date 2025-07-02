@@ -1,3 +1,46 @@
 [
-  
+  {
+    "id": 1,
+    "date": "2025-07-02T22:29:24.586Z",
+    "player1": {
+      "id": 1,
+      "name": "EmaLei05",
+      "level": 7,
+      "game": {
+        "id": 1,
+        "name": "OW",
+        "category": "Hero Shooter, Accion"
+      },
+      "victory": 8,
+      "defeat": 0,
+      "points": 40
+    },
+    "player2": {
+      "id": 2,
+      "name": "BrisaLopez",
+      "level": 3,
+      "game": {
+        "id": 1,
+        "name": "OW",
+        "category": "Hero Shooter, Accion"
+      },
+      "victory": 3,
+      "defeat": 1,
+      "points": 13
+    },
+    "winner": {
+      "id": 1,
+      "name": "EmaLei05",
+      "level": 7,
+      "game": {
+        "id": 1,
+        "name": "OW",
+        "category": "Hero Shooter, Accion"
+      },
+      "victory": 8,
+      "defeat": 0,
+      "points": 40
+    },
+    "type": "Torneo"
+  }
 ]

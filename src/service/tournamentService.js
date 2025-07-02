@@ -1,19 +1,25 @@
 import {getMatches,saveMatches} from "../data/matchData.js"
 import { createObjectPlayer } from "./matchService.js";
 import { getPlayers,savePlayers } from "../data/playerData.js";
+import Match from "../models/Match.js";
 
 export function createObjectMatch(match){
     let matches = getMatches();
 
     const matchFS = matches.find(m => m.id === match.id);
+
+    console.log(matchFS)
+
     if(!matchFS){
         throw new Error("Partida no encontrada");
     }
 
-    matchFS.player1 = createObjectPlayer(matchFS.player1);
-    matchFS.player2 = createObjectPlayer(matchFS.player2);
+    let matchObject = new Match(matchFS.id, matchFS.date,matchFS.player1,matchFS.player2,matchFS.type);
 
-    return matchFS
+    matchObject.player1 = createObjectPlayer(matchFS.player1);
+    matchObject.player2 = createObjectPlayer(matchFS.player2);
+
+    return matchObject;
 }
 
 export function saveMatch(match){

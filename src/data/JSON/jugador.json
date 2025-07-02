@@ -2,15 +2,15 @@
   {
     "id": 1,
     "name": "EmaLei05",
-    "level": 6,
+    "level": 7,
     "game": {
       "id": 1,
       "name": "OW",
       "category": "Hero Shooter, Accion"
     },
-    "victory": 7,
+    "victory": 8,
     "defeat": 0,
-    "points": 35
+    "points": 40
   },
   {
     "id": 2,
@@ -22,8 +22,8 @@
       "category": "Hero Shooter, Accion"
     },
     "victory": 3,
-    "defeat": 0,
-    "points": 15
+    "defeat": 1,
+    "points": 13
   },
   {
     "id": 3,
