@@ -1,7 +1,7 @@
 import Match from "../models/Match.js"
 import {getMatches, saveMatches} from "../data/matchData.js"
 import {getPlayers} from "../data/playerData.js"
-import {createObjectPlayer, guardarJugadores} from "../service/matchService.js"
+import {createObjectPlayer, guardarJugadores} from "../service/proyectoService.js"
 
 
 export const getAllMatch = (req,res) => {
