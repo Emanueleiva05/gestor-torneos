@@ -1,5 +1,4 @@
 import {getMatches,saveMatches} from "../data/matchData.js"
-import { createObjectPlayer } from "./matchService.js";
 import { getPlayers,savePlayers } from "../data/playerData.js";
 import Match from "../models/Match.js";
 import Player from "../models/Player.js"
