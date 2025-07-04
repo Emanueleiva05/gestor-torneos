@@ -1,14 +1,16 @@
 import Game from "../models/Game.js"
 import { getGames, saveGame } from "../data/gameData.js"
-
-let games = getGames();
+import { setID } from "../service/domainService.js"
 
 export const getAllGames = (req,res) => {
+    let games = getGames();
     res.json(games);
 }
 
 export const getGame = (req,res) => {
     try{
+        let games = getGames();
+
         const id = parseInt(req.params.id);
         const juego = games.find(g => g.id === id);
     
@@ -24,7 +26,9 @@ export const getGame = (req,res) => {
 
 export const setGame = (req,res) => {
     try{
-        let id = games.length === 0 ? 1 : games.length + 1; 
+        let games = getGames();
+
+        let id = setID(games);
         let {name, category} = req.body;
         
         if (!name || !category) throw new Error("Faltan datos obligatorios");
@@ -46,6 +50,8 @@ export const setGame = (req,res) => {
 
 export const deleteGame = (req, res) => {
     try{
+        let games = getGames();
+
         const id = parseInt(req.params.id);
 
         if(!games.some(g => g.id === id)){
@@ -63,6 +69,8 @@ export const deleteGame = (req, res) => {
 
 export const modifyGame = (req,res) => {
     try{
+        let games = getGames();
+
         const {name, category} = req.body;
         const id = parseInt(req.params.id);
         const index = games.findIndex(g => g.id === id);

@@ -1,46 +1,78 @@
 [
   {
     "id": 1,
-    "date": "2025-07-02T22:29:24.586Z",
+    "date": "Fecha",
+    "player1": {
+      "id": 2,
+      "name": "QuimeyCH",
+      "level": 0,
+      "game": {
+        "id": 2,
+        "name": "Counter-Strike",
+        "category": "Shooter"
+      },
+      "victory": 0,
+      "defeat": 1,
+      "points": -2
+    },
+    "player2": {
+      "id": 4,
+      "name": "BisaSkr",
+      "level": 0,
+      "game": {
+        "id": 2,
+        "name": "Counter-Strike",
+        "category": "Shooter"
+      },
+      "victory": 1,
+      "defeat": 0,
+      "points": 5
+    },
+    "winner": {
+      "id": 4,
+      "name": "BisaSkr",
+      "level": 0,
+      "game": {
+        "id": 2,
+        "name": "Counter-Strike",
+        "category": "Shooter"
+      },
+      "victory": 1,
+      "defeat": 0,
+      "points": 5
+    },
+    "type": "Amistoso"
+  },
+  {
+    "id": 2,
+    "date": "Fecha",
     "player1": {
       "id": 1,
       "name": "EmaLei05",
-      "level": 7,
+      "level": 0,
       "game": {
-        "id": 1,
-        "name": "OW",
-        "category": "Hero Shooter, Accion"
+        "id": 2,
+        "name": "Counter-Strike",
+        "category": "Shooter"
       },
-      "victory": 8,
+      "victory": 0,
       "defeat": 0,
-      "points": 40
+      "points": 0
     },
     "player2": {
-      "id": 2,
-      "name": "BrisaLopez",
-      "level": 3,
+      "id": 3,
+      "name": "Camil",
+      "level": 0,
       "game": {
-        "id": 1,
-        "name": "OW",
-        "category": "Hero Shooter, Accion"
+        "id": 2,
+        "name": "Counter-Strike",
+        "category": "Shooter"
       },
-      "victory": 3,
-      "defeat": 1,
-      "points": 13
-    },
-    "winner": {
-      "id": 1,
-      "name": "EmaLei05",
-      "level": 7,
-      "game": {
-        "id": 1,
-        "name": "OW",
-        "category": "Hero Shooter, Accion"
-      },
-      "victory": 8,
+      "victory": 0,
       "defeat": 0,
-      "points": 40
+      "points": 0
     },
-    "type": "Torneo"
+    "winner": null,
+    "type": "Amistoso"
   }
 ]

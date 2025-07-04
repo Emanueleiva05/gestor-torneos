@@ -1,7 +1,7 @@
 import Match from "../models/Match.js"
 import {getMatches, saveMatches} from "../data/matchData.js"
 import {getPlayers} from "../data/playerData.js"
-import {createObjectPlayer, guardarJugadores} from "../service/domainService.js"
+import {createObjectPlayer, guardarJugadores, setID } from "../service/domainService.js"
 
 
 export const getAllMatch = (req,res) => {
@@ -31,7 +31,7 @@ export const setMatch = (req,res) => {
         let players = getPlayers();
         let matches = getMatches();
 
-        const id = matches.length === 0 ? 1 : matches.length + 1;
+        const id = setID(matches);
         const { date, idPlayer1, idPlayer2 } = req.body;
     
         if(typeof idPlayer1 !== "number" || typeof idPlayer2 !== "number"){

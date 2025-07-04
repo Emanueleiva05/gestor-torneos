@@ -18,6 +18,6 @@ router.delete("/:id", deleteMatch);
 //Modificar un partido por su ID
 router.put("/:id",modifyMatch);
 
-router.put("/winner/:id", winnerMatch);
+router.put("/:id/winner", winnerMatch);
 
 export default router;

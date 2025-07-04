@@ -1,82 +1,9 @@
 [
   {
     "id": 1,
-    "players": [
-      {
-        "id": 1,
-        "name": "EmaLei05",
-        "level": 6,
-        "game": {
-          "id": 1,
-          "name": "OW",
-          "category": "Hero Shooter, Accion"
-        },
-        "victory": 7,
-        "defeat": 0,
-        "points": 35
-      },
-      {
-        "id": 2,
-        "name": "BrisaLopez",
-        "level": 3,
-        "game": {
-          "id": 1,
-          "name": "OW",
-          "category": "Hero Shooter, Accion"
-        },
-        "victory": 3,
-        "defeat": 0,
-        "points": 15
-      },
-      {
-        "id": 3,
-        "name": "QuimeyCh",
-        "level": 0,
-        "game": {
-          "id": 1,
-          "name": "OW",
-          "category": "Hero Shooter, Accion"
-        },
-        "victory": 0,
-        "defeat": 9,
-        "points": -18
-      }
-    ],
-    "matches": [
-      {
-        "id": 1,
-        "date": "2025-07-02T22:29:24.586Z",
-        "player1": {
-          "id": 1,
-          "name": "EmaLei05",
-          "level": 6,
-          "game": {
-            "id": 1,
-            "name": "OW",
-            "category": "Hero Shooter, Accion"
-          },
-          "victory": 7,
-          "defeat": 0,
-          "points": 35
-        },
-        "player2": {
-          "id": 2,
-          "name": "BrisaLopez",
-          "level": 3,
-          "game": {
-            "id": 1,
-            "name": "OW",
-            "category": "Hero Shooter, Accion"
-          },
-          "victory": 3,
-          "defeat": 0,
-          "points": 15
-        },
-        "winner": null,
-        "type": "Torneo"
-      }
-    ],
-    "name": "Torneo de ow",
-    "dateCreation": "2025-07-02T22:20:46.630Z"
+    "players": [],
+    "matches": [],
+    "name": "Torneo de counter-strike",
+    "dateCreation": "2025-07-04T20:54:09.197Z"
   }
 ]

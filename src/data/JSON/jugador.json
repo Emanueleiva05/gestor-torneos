@@ -2,53 +2,53 @@
   {
     "id": 1,
     "name": "EmaLei05",
-    "level": 7,
+    "level": 0,
     "game": {
-      "id": 1,
-      "name": "OW",
-      "category": "Hero Shooter, Accion"
+      "id": 2,
+      "name": "Counter-Strike",
+      "category": "Shooter"
     },
-    "victory": 8,
+    "victory": 0,
     "defeat": 0,
-    "points": 40
+    "points": 0
   },
   {
     "id": 2,
-    "name": "BrisaLopez",
-    "level": 3,
-    "game": {
-      "id": 1,
-      "name": "OW",
-      "category": "Hero Shooter, Accion"
-    },
-    "victory": 3,
-    "defeat": 1,
-    "points": 13
-  },
-  {
-    "id": 3,
-    "name": "QuimeyCh",
+    "name": "QuimeyCH",
     "level": 0,
     "game": {
-      "id": 1,
-      "name": "OW",
-      "category": "Hero Shooter, Accion"
-    },
-    "victory": 0,
-    "defeat": 9,
-    "points": -18
-  },
-  {
-    "id": 4,
-    "name": "Camil",
-    "level": 0,
-    "game": {
-      "id": 1,
-      "name": "OW",
-      "category": "Hero Shooter, Accion"
+      "id": 2,
+      "name": "Counter-Strike",
+      "category": "Shooter"
     },
     "victory": 0,
     "defeat": 1,
     "points": -2
+  },
+  {
+    "id": 3,
+    "name": "Camil",
+    "level": 0,
+    "game": {
+      "id": 2,
+      "name": "Counter-Strike",
+      "category": "Shooter"
+    },
+    "victory": 0,
+    "defeat": 0,
+    "points": 0
+  },
+  {
+    "id": 4,
+    "name": "BisaSkr",
+    "level": 0,
+    "game": {
+      "id": 2,
+      "name": "Counter-Strike",
+      "category": "Shooter"
+    },
+    "victory": 1,
+    "defeat": 0,
+    "points": 5
   }
 ]

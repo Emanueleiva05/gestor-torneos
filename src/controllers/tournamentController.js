@@ -2,7 +2,7 @@ import Tournament from "../models/Tournament.js"
 import {getTournaments, saveTournaments} from "../data/tournamentData.js"
 import {getPlayers} from "../data/playerData.js"
 import {getMatches, saveMatches} from "../data/matchData.js"
-import { createObjectMatch, saveMatch } from "../service/domainService.js"
+import { createObjectMatch, saveMatch, setID } from "../service/domainService.js"
 
 export const getAllTournament = (req,res) => {
     let tournaments = getTournaments();
@@ -31,7 +31,7 @@ export const setTournament = (req,res) => {
     try{
         let tournaments = getTournaments();
 
-        const id = tournaments.length === 0 ? 1 : tournaments.length + 1;
+        const id = setID(tournaments);
         const { name } = req.body;
     
         if(!name){

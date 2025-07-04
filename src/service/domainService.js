@@ -75,3 +75,12 @@ export function guardarJugadores(matches, index) {
 
     savePlayers(players);
 }
+
+export function setID(array){
+    if(array.length === 0){
+        return 1;
+    }else{
+        const id = array.reduce((max, act) => act.id > max ? act.id : max, 0);
+        return id + 1; 
+    }
+}

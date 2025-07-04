@@ -1,12 +1,22 @@
 [
   {
     "id": 1,
-    "name": "OW",
-    "category": "Hero Shooter, Accion"
+    "name": "Overwatch",
+    "category": "Hero-Shooter"
+  },
+  {
+    "id": 3,
+    "name": "God of war",
+    "category": "Hack and Slash"
   },
   {
     "id": 2,
-    "name": "CS",
+    "name": "Counter-Strike",
     "category": "Shooter"
+  },
+  {
+    "id": 4,
+    "name": "Portal 2",
+    "category": "Plataform"
   }
 ]

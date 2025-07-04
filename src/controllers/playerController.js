@@ -1,16 +1,18 @@
 import Player from "../models/Player.js"
 import {getPlayers, savePlayers} from "../data/playerData.js"
 import {getGames} from "../data/gameData.js"
-
-let players = getPlayers();
-let games = getGames();
+import { setID } from "../service/domainService.js";
 
 export const getAllPlayer = (req,res) => {
+    let players = getPlayers();
+
     res.json(players);
 }
 
 export const getPlayer = (req,res) => {
     try{
+        let players = getPlayers();
+
         const id = parseInt(req.params.id);
         const player = players.find(p => p.id === id);
     
@@ -26,7 +28,10 @@ export const getPlayer = (req,res) => {
 
 export const setPlayer = (req,res) => {
     try{
-        const id = players.length === 0 ? 1 : players.length + 1;
+        let players = getPlayers();
+        let games = getGames();
+
+        const id = setID(players);
         const { name, idGame } = req.body;
     
         const game = games.find(g => g.id === parseInt(idGame));
@@ -48,6 +53,8 @@ export const setPlayer = (req,res) => {
 
 export const deletePlayer = (req, res) => {
     try{
+        let players = getPlayers();
+
         const id = parseInt(req.params.id);
 
         if(!players.some(p => p.id === id)){
@@ -66,6 +73,9 @@ export const deletePlayer = (req, res) => {
 
 export const modifyPlayer = (req,res) => {
     try{
+        let players = getPlayers();
+        let games = getGames();
+
         const id = parseInt(req.params.id);
         const { name, idGame } = req.body;
     
