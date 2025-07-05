@@ -100,3 +100,33 @@ export const modifyPlayer = (req,res) => {
         res.status(404).send(error.message);
     }
 }
+
+export const getPlayerByLevel = (req,res) => {
+    try{
+        let players = getPlayers();
+
+        const level = parseInt(req.params.level);
+        const playerLevels = players.filter(p => p.level === level);
+    
+        if(!playerLevels){
+            throw new Error("No se encontraron jugadores con ese nivel");
+        }
+
+        return playerLevels;
+    }catch(error){
+        res.status(404).send(error.message);
+    }
+}
+
+export const getBestPlayerGlobal = (req,res) => {
+    try{
+        let players = getPlayers();
+
+        const bestPlayer = players.reduce((max,act) => act.points > max.points ? max : act, 0);
+    
+        return bestPlayer;
+    }catch(error){
+        res.status(404).send(error.message);
+    }
+}
+

@@ -1,9 +1,46 @@
 [
   {
     "id": 1,
-    "players": [],
+    "players": [
+      {
+        "id": 1,
+        "name": "EmaLei05",
+        "level": 0,
+        "game": {
+          "id": 2,
+          "name": "Counter-Strike",
+          "category": "Shooter"
+        },
+        "victory": 0,
+        "defeat": 0,
+        "points": 0
+      }
+    ],
     "matches": [],
     "name": "Torneo de counter-strike",
-    "dateCreation": "2025-07-04T20:54:09.197Z"
+    "dateCreation": "2025-07-04T20:54:09.197Z",
+    "finalizar": false
+  },
+  {
+    "id": 2,
+    "players": [
+      {
+        "id": 1,
+        "name": "EmaLei05",
+        "level": 0,
+        "game": {
+          "id": 2,
+          "name": "Counter-Strike",
+          "category": "Shooter"
+        },
+        "victory": 0,
+        "defeat": 0,
+        "points": 0
+      }
+    ],
+    "matches": [],
+    "name": "Torneo de counter-strike",
+    "dateCreation": "2025-07-04T20:54:09.197Z",
+    "finalizar": false
   }
 ]

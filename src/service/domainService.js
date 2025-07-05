@@ -1,8 +1,27 @@
 import {getMatches,saveMatches} from "../data/matchData.js"
 import { getPlayers,savePlayers } from "../data/playerData.js";
+import { getTournaments } from "../data/tournamentData.js";
 import Match from "../models/Match.js";
 import Player from "../models/Player.js"
+import Tournament from "../models/Tournament.js";
 
+export function createObjectTournament(torneo){
+    const tournaments = getTournaments();
+
+    const tournamentFind = tournaments.find(t => t.id === torneo.id)
+
+    if(!tournamentFind){
+        throw new Error("El torneo no se encontro");
+    }
+
+    let tournament = new Tournament(tournamentFind.id, tournamentFind.name);
+    tournament.players = tournamentFind.players;
+    tournament.matches = tournamentFind.matches;
+    tournament.dateCreation = tournamentFind.dateCreation;
+    tournament.finalizar - tournamentFind.finalizar;
+
+    return tournament
+}
 
 export function createObjectMatch(match){
     let matches = getMatches();

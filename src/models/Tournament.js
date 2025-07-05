@@ -7,6 +7,7 @@ export default class Tournament{
         this.matches = [];
         this.name = name;
         this.dateCreation = new Date();
+        this.finalizar = false
     }
 
     agregarJugador(player){
@@ -48,6 +49,10 @@ export default class Tournament{
 
     eliminarJugador(id){
         this.players = this.players.filter(p => p.id != id);
+    }
+
+    eliminarPartida(id){
+        this.matches = this.matches.filter(m => m.id != id);
     }
 
     mejorJugador(){

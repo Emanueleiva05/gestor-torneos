@@ -1,5 +1,5 @@
 import  express  from "express"
-import { getAllPlayer, getPlayer, setPlayer, modifyPlayer, deletePlayer } from "../controllers/playerController.js"
+import { getAllPlayer, getPlayer, setPlayer, modifyPlayer, deletePlayer, getPlayerByLevel, getBestPlayerGlobal } from "../controllers/playerController.js"
 
 const router = express.Router();
 
@@ -17,5 +17,11 @@ router.delete("/:id", deletePlayer);
 
 //Modificar un jugador por su ID
 router.put("/:id",modifyPlayer);
+
+//Ver jugadores segun nivel 
+router.get("/:level/level", getPlayerByLevel);
+
+//Ver mejor jugador global
+router.get("/bestPlayer",getBestPlayerGlobal);
 
 export default router;

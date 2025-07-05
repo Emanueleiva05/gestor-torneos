@@ -1,5 +1,5 @@
 import express from "express"
-import { getAllTournament, getTournament, setTournament, modifyTournament, deleteTournament, addPlayer, createMatch, getAllPlayer, getAllMatches, deletePlayer, winnerMatch, searchPlayer, bestPlayer } from "../controllers/tournamentController.js"
+import { getAllTournament, getTournament, setTournament, modifyTournament, deleteTournament, addPlayer, createMatch, getAllPlayer, getAllMatches, deletePlayer, winnerMatch, searchPlayer, bestPlayer, closeTournament, openTournament, cloneTournament } from "../controllers/tournamentController.js"
 
 const router = express.Router();
 
@@ -41,5 +41,14 @@ router.get("/:id/bestPlayer", bestPlayer);
 
 //Bucar jugador por nombre
 router.get("/:id/searchPlayer", searchPlayer);
+
+//Terminar torneo
+router.put("/:id/closeTournament", closeTournament);
+
+//Abrir torneo
+router.put("/:id/openTournament", openTournament);
+
+//Torneo copiado
+router.post("/:id/cloneTournament", cloneTournament);
 
 export default router;
