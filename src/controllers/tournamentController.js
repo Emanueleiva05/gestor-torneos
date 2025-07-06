@@ -116,6 +116,10 @@ export const addPlayer = (req, res) => {
             throw new Error("Jugador no encontrado");
         }
 
+        if(player.block === true){
+            throw new Error("Jugador blockeado no es posible ingresarlo en el torneo")
+        }
+
         if(indexTournament === -1){
             throw new Error("Torneo no encontrado");
         }

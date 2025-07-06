@@ -4,6 +4,7 @@ export default class Player{
         this.name= name;
         this.level = 0;
         this.game = game;
+        this.block = false;
         this.victory = 0;
         this.defeat = 0;
         this.points = 0;

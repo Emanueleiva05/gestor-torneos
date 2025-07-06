@@ -15,10 +15,10 @@ export function createObjectTournament(torneo){
     }
 
     let tournament = new Tournament(tournamentFind.id, tournamentFind.name);
-    tournament.players = tournamentFind.players;
-    tournament.matches = tournamentFind.matches;
-    tournament.dateCreation = tournamentFind.dateCreation;
-    tournament.finalizar - tournamentFind.finalizar;
+    tournament.players = [...tournamentFind.players]; //Clono las arrays porque si modifico las del original o este se cambian en los dos
+    tournament.matches = [...tournamentFind.matches];
+    tournament.dateCreation = new Date();
+    tournament.finalizar = tournamentFind.finalizar;
 
     return tournament
 }
@@ -72,6 +72,7 @@ export function createObjectPlayer(player){
     playerFound.level = playerFS.level;
     playerFound.victory = playerFS.victory;
     playerFound.points = playerFS.points;
+    playerFound.block = playerFS.block;
     
     return playerFound;
 }

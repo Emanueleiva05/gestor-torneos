@@ -1,5 +1,5 @@
 import  express  from "express"
-import { getAllPlayer, getPlayer, setPlayer, modifyPlayer, deletePlayer, getPlayerByLevel, getBestPlayerGlobal } from "../controllers/playerController.js"
+import { getAllPlayer, getPlayer, setPlayer, modifyPlayer, deletePlayer, getPlayerByLevel, getBestPlayerGlobal, blockPlayer, unblockPlayer, matchesOfPlayer } from "../controllers/playerController.js"
 
 const router = express.Router();
 
@@ -23,5 +23,14 @@ router.get("/:level/level", getPlayerByLevel);
 
 //Ver mejor jugador global
 router.get("/bestPlayer",getBestPlayerGlobal);
+
+//Bloquear jugador
+router.put("/:id/block", blockPlayer);
+
+//Desbloquear jugador
+router.put("/:id/unblock", unblockPlayer);
+
+//Ver partidos de un jugador
+router.get("/:id/matches", matchesOfPlayer);
 
 export default router;

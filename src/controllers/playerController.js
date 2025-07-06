@@ -2,6 +2,7 @@ import Player from "../models/Player.js"
 import {getPlayers, savePlayers} from "../data/playerData.js"
 import {getGames} from "../data/gameData.js"
 import { setID } from "../service/domainService.js";
+import { getMatches } from "../data/matchData.js";
 
 export const getAllPlayer = (req,res) => {
     let players = getPlayers();
@@ -130,3 +131,57 @@ export const getBestPlayerGlobal = (req,res) => {
     }
 }
 
+export const blockPlayer = (req,res) => {
+    try{
+        let players = getPlayers();
+        let id = parseInt(req.params.id);
+
+        let player = players.find(p => p.id === id);
+        if(!player){
+            throw new Error("No hay jugadores con ese id");
+        }
+
+        player.block = true;
+        savePlayers(players);
+
+        res.send("Jugador bloqueado");
+    }catch(error){
+        res.status(404).send(error.message);
+    }
+}
+
+export const unblockPlayer = (req,res) => {
+    try{
+        let players = getPlayers();
+        let id = parseInt(req.params.id);
+
+        let player = players.find(p => p.id === id);
+        if(!player){
+            throw new Error("No hay jugadores con ese id");
+        }
+
+        player.block = false;
+
+        savePlayers(players);
+        res.send("Jugador desbloqueado");
+    }catch(error){
+        res.status(404).send(error.message);
+    }
+}
+
+export const matchesOfPlayer = (req, res) => {
+    try{
+        let matches = getMatches();
+    
+        const id = parseInt(req.params.id);
+        const matchesPlayer = matches.filter(m => m.player1.id === id || m.player2.id === id);
+    
+        if(matchesPlayer.length === 0){
+            throw new Error("Partidos de jugador no encontrados");
+        }
+    
+        res.json(matchesPlayer);
+    }catch(error){
+        res.status(404).send(error.message);
+    }
+}

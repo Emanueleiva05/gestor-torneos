@@ -45,6 +45,14 @@ export const setMatch = (req,res) => {
             throw new Error("No se encontro ningun jugador")
         }
 
+        if(player1.block === true){
+            throw new Error("Jugador 1 blockeado no es posible ingresarlo en el torneo")
+        }
+
+        if(player2.block === true){
+            throw new Error("Jugador 2 blockeado no es posible ingresarlo en el torneo")
+        }
+
         const match = new Match(id,date,player1,player2,"Amistoso");
     
         matches.push(match);

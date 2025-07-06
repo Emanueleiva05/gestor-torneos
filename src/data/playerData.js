@@ -19,6 +19,7 @@ export function getPlayers() {
             player.victory = p.victory;
             player.defeat = p.defeat;
             player.points = p.points;
+            player.block = p.block;
             return player
         });
         return players;
