@@ -1,7 +1,7 @@
 import Player from "../models/Player.js"
 import {getPlayers, savePlayers} from "../data/playerData.js"
 import {getGames} from "../data/gameData.js"
-import { setID } from "../service/domainService.js";
+import { createObjectPlayer, setID } from "../service/domainService.js";
 import { getMatches } from "../data/matchData.js";
 
 export const getAllPlayer = (req,res) => {
@@ -183,5 +183,39 @@ export const matchesOfPlayer = (req, res) => {
         res.json(matchesPlayer);
     }catch(error){
         res.status(404).send(error.message);
+    }
+}
+
+export const bestPlayers = (req,res) => {
+    try{
+        let players = getPlayers();
+
+        let bestPlayers = [...players].sort((a,b) => b.points - a.points).splice(0,5);
+    
+        if(bestPlayers.length === 0){
+            throw new Error("No se encontraron jugador");
+        }
+    
+        res.json(bestPlayers);    
+    }catch(error){
+        res.status(404).send(error.message);
+    }
+}
+
+export const ratioPlayer = (req,res) => {
+    try{
+        let players = getPlayers();
+        const id = parseInt(req.params.id);
+    
+        const playerFind = players.find(p => p.id === id);
+        if(!playerFind){
+            throw new Error("Jugador no encontrado");
+        }
+    
+        const playerClass = createObjectPlayer(playerFind); 
+    
+        res.send(playerClass.ratio());
+    }catch(error){
+        res.status(404).send(error.message)
     }
 }

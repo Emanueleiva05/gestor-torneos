@@ -33,4 +33,12 @@ export default class Player{
         this.defeat = 0;
         this.points = 0;
     }
+
+    ratio(){
+        if(this.defeat === 0){
+            return 100
+        }else{
+            return 100*(this.victory/this.defeat)
+        } 
+    }
 }

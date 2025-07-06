@@ -62,4 +62,8 @@ export default class Tournament{
 
         return player; 
     }
+
+    top5Jugadores(){
+        return this.players.sort((a,b) => b.points - a.points).slice(0,5);
+    }
 }

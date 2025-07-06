@@ -367,3 +367,18 @@ export const cloneTournament = (req,res) => {
         res.status(404).send(error.message)
     }
 }
+
+export const top5Players = (req,res) => {
+    let tournaments = getTournaments();
+
+    const id = parseInt(req.params.id);
+    const tournament = tournaments.find(p => p.id === id);
+
+    if(!tournament){
+        throw new Error("no se encontro el torneo")
+    }
+
+    const tournamentObject = createObjectTournament(tournament);
+
+    res.json(tournamentObject.top5Jugadores());
+}
