@@ -7,6 +7,7 @@ export default class Tournament{
         this.matches = [];
         this.name = name;
         this.dateCreation = new Date();
+        this.finalizar = false
     }
 
     agregarJugador(player){
@@ -50,11 +51,19 @@ export default class Tournament{
         this.players = this.players.filter(p => p.id != id);
     }
 
+    eliminarPartida(id){
+        this.matches = this.matches.filter(m => m.id != id);
+    }
+
     mejorJugador(){
         const player = this.players.reduce((maximo, actual) => { //Reduce tiene dos parametros el acumulador y el valor actual del array, entonces primero el maximo seria el elemento con mejor puntuacion y el segundo el jugador que se esta comparando 
             return actual.points > maximo.points ? actual : maximo;
         })
 
         return player; 
+    }
+
+    top5Jugadores(){
+        return this.players.sort((a,b) => b.points - a.points).slice(0,5);
     }
 }

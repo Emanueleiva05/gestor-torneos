@@ -1,7 +1,7 @@
 import Match from "../models/Match.js"
 import {getMatches, saveMatches} from "../data/matchData.js"
 import {getPlayers} from "../data/playerData.js"
-import {createObjectPlayer, guardarJugadores} from "../service/domainService.js"
+import {createObjectPlayer, guardarJugadores, setID } from "../service/domainService.js"
 
 
 export const getAllMatch = (req,res) => {
@@ -15,10 +15,6 @@ export const getMatch = (req,res) => {
 
         const id = parseInt(req.params.id);
         const match = matches.find(m => m.id === id);
-
-        if(!match){
-            throw new Error("No se encontro un partido con ese ID");
-        }
     
         res.json(match);
     }catch(error){
@@ -31,19 +27,11 @@ export const setMatch = (req,res) => {
         let players = getPlayers();
         let matches = getMatches();
 
-        const id = matches.length === 0 ? 1 : matches.length + 1;
+        const id = setID(matches);
         const { date, idPlayer1, idPlayer2 } = req.body;
-    
-        if(typeof idPlayer1 !== "number" || typeof idPlayer2 !== "number"){
-            throw new Error("Algunas de las ids mandadas no es un number")
-        }
 
         const player1 = players.find(p => p.id === parseInt(idPlayer1));
         const player2 = players.find(p => p.id === parseInt(idPlayer2));
-    
-        if(!player1 || !player2){
-            throw new Error("No se encontro ningun jugador")
-        }
 
         const match = new Match(id,date,player1,player2,"Amistoso");
     
@@ -85,16 +73,8 @@ export const modifyMatch = (req,res) => {
     
         const player1 = players.find(p => p.id === parseInt(idPlayer1));
         const player2 = players.find(p => p.id === parseInt(idPlayer2));
-        
-        if(!player1 || !player2){
-            throw new Error("No se encontro ningun jugador")
-        }
 
         const index = matches.findIndex(m => m.id === id)
-    
-        if(index === -1){
-            throw new Error("Partido no encontrado");
-        }
     
         matches[index].date = date;
         matches[index].player1 = player1;
@@ -115,10 +95,6 @@ export const winnerMatch = (req,res) => {
         const id = parseInt(req.params.id);
 
         const index = matches.findIndex(m => m.id === id);
-
-        if(index === -1){
-            throw new Error("Partido no encontrado");
-        }
     
         if(matches[index].winner){
             throw new Error("No se puede volver a jugar la partida, ya tiene un ganador")

@@ -1,12 +1,12 @@
 [
   {
     "id": 1,
-    "name": "OW",
-    "category": "Hero Shooter, Accion"
+    "name": "Overwatch",
+    "category": "Hero-Shooter"
   },
   {
     "id": 2,
-    "name": "CS",
+    "name": "Counter Strike",
     "category": "Shooter"
   }
 ]

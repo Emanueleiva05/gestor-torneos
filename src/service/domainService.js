@@ -1,8 +1,27 @@
 import {getMatches,saveMatches} from "../data/matchData.js"
 import { getPlayers,savePlayers } from "../data/playerData.js";
+import { getTournaments } from "../data/tournamentData.js";
 import Match from "../models/Match.js";
 import Player from "../models/Player.js"
+import Tournament from "../models/Tournament.js";
 
+export function createObjectTournament(torneo){
+    const tournaments = getTournaments();
+
+    const tournamentFind = tournaments.find(t => t.id === torneo.id)
+
+    if(!tournamentFind){
+        throw new Error("El torneo no se encontro");
+    }
+
+    let tournament = new Tournament(tournamentFind.id, tournamentFind.name);
+    tournament.players = [...tournamentFind.players]; //Clono las arrays porque si modifico las del original o este se cambian en los dos
+    tournament.matches = [...tournamentFind.matches];
+    tournament.dateCreation = new Date();
+    tournament.finalizar = tournamentFind.finalizar;
+
+    return tournament
+}
 
 export function createObjectMatch(match){
     let matches = getMatches();
@@ -53,6 +72,7 @@ export function createObjectPlayer(player){
     playerFound.level = playerFS.level;
     playerFound.victory = playerFS.victory;
     playerFound.points = playerFS.points;
+    playerFound.block = playerFS.block;
     
     return playerFound;
 }
@@ -74,4 +94,13 @@ export function guardarJugadores(matches, index) {
     players[indexPlayer2] = player2;
 
     savePlayers(players);
+}
+
+export function setID(array){
+    if(array.length === 0){
+        return 1;
+    }else{
+        const id = array.reduce((max, act) => act.id > max ? act.id : max, 0);
+        return id + 1; 
+    }
 }

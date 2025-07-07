@@ -18,6 +18,7 @@ export function getTournaments() {
             torneo.matches = t.matches;
             torneo.players = t.players;
             torneo.dateCreation = t.dateCreation;
+            torneo.finalizar = t.finalizar;
             return torneo
         })
         return tournaments;
