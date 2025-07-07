@@ -16,10 +16,6 @@ export const getPlayer = (req,res) => {
 
         const id = parseInt(req.params.id);
         const player = players.find(p => p.id === id);
-    
-        if(!player){
-            throw new Error("Jugador no encontrado");
-        }
 
         res.json(player);
     }catch(error){
@@ -36,10 +32,6 @@ export const setPlayer = (req,res) => {
         const { name, idGame } = req.body;
     
         const game = games.find(g => g.id === parseInt(idGame));
-
-        if(!game){
-            throw new Error("Juego no encontrado");
-        }
 
         const player = new Player(id,name,game);
     
@@ -85,10 +77,6 @@ export const modifyPlayer = (req,res) => {
     
         if(index === -1){
             throw new Error("Jugador no encontrado");
-        }
-
-        if(!game){
-            throw new Error("Juego no encontrado")
         }
 
         players[index].name = name;
@@ -137,9 +125,6 @@ export const blockPlayer = (req,res) => {
         let id = parseInt(req.params.id);
 
         let player = players.find(p => p.id === id);
-        if(!player){
-            throw new Error("No hay jugadores con ese id");
-        }
 
         player.block = true;
         savePlayers(players);
@@ -156,9 +141,6 @@ export const unblockPlayer = (req,res) => {
         let id = parseInt(req.params.id);
 
         let player = players.find(p => p.id === id);
-        if(!player){
-            throw new Error("No hay jugadores con ese id");
-        }
 
         player.block = false;
 
@@ -208,10 +190,7 @@ export const ratioPlayer = (req,res) => {
         const id = parseInt(req.params.id);
     
         const playerFind = players.find(p => p.id === id);
-        if(!playerFind){
-            throw new Error("Jugador no encontrado");
-        }
-    
+
         const playerClass = createObjectPlayer(playerFind); 
     
         res.send(playerClass.ratio());

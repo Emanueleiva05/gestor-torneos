@@ -13,10 +13,6 @@ export const getGame = (req,res) => {
 
         const id = parseInt(req.params.id);
         const juego = games.find(g => g.id === id);
-    
-        if(!juego){
-            throw new Error("No se encontro un juego con ese ID");
-        }
 
         res.json(juego);
     }catch(error){
@@ -30,12 +26,6 @@ export const setGame = (req,res) => {
 
         let id = setID(games);
         let {name, category} = req.body;
-        
-        if (!name || !category) throw new Error("Faltan datos obligatorios");
-
-        if(typeof name !== "string" || typeof category !== "string"){
-            throw new Error("Una de las variables no es una cadena de texto")
-        }
 
         const juego = new Game(id, name, category)
         games.push(juego);
@@ -77,12 +67,6 @@ export const modifyGame = (req,res) => {
     
         if(index === -1){
             throw new Error("El juego no fue encontrado");
-        }
-
-        if (!name || !category) throw new Error("Faltan datos obligatorios");
-
-        if(typeof name !== "string" || typeof category !== "string"){
-            throw new Error("Una de las variables no es una cadena de texto")
         }
 
         games[index].name = name;

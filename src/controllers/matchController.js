@@ -15,10 +15,6 @@ export const getMatch = (req,res) => {
 
         const id = parseInt(req.params.id);
         const match = matches.find(m => m.id === id);
-
-        if(!match){
-            throw new Error("No se encontro un partido con ese ID");
-        }
     
         res.json(match);
     }catch(error){
@@ -33,25 +29,9 @@ export const setMatch = (req,res) => {
 
         const id = setID(matches);
         const { date, idPlayer1, idPlayer2 } = req.body;
-    
-        if(typeof idPlayer1 !== "number" || typeof idPlayer2 !== "number"){
-            throw new Error("Algunas de las ids mandadas no es un number")
-        }
 
         const player1 = players.find(p => p.id === parseInt(idPlayer1));
         const player2 = players.find(p => p.id === parseInt(idPlayer2));
-    
-        if(!player1 || !player2){
-            throw new Error("No se encontro ningun jugador")
-        }
-
-        if(player1.block === true){
-            throw new Error("Jugador 1 blockeado no es posible ingresarlo en el torneo")
-        }
-
-        if(player2.block === true){
-            throw new Error("Jugador 2 blockeado no es posible ingresarlo en el torneo")
-        }
 
         const match = new Match(id,date,player1,player2,"Amistoso");
     
@@ -93,16 +73,8 @@ export const modifyMatch = (req,res) => {
     
         const player1 = players.find(p => p.id === parseInt(idPlayer1));
         const player2 = players.find(p => p.id === parseInt(idPlayer2));
-        
-        if(!player1 || !player2){
-            throw new Error("No se encontro ningun jugador")
-        }
 
         const index = matches.findIndex(m => m.id === id)
-    
-        if(index === -1){
-            throw new Error("Partido no encontrado");
-        }
     
         matches[index].date = date;
         matches[index].player1 = player1;
@@ -123,10 +95,6 @@ export const winnerMatch = (req,res) => {
         const id = parseInt(req.params.id);
 
         const index = matches.findIndex(m => m.id === id);
-
-        if(index === -1){
-            throw new Error("Partido no encontrado");
-        }
     
         if(matches[index].winner){
             throw new Error("No se puede volver a jugar la partida, ya tiene un ganador")
